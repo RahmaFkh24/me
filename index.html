@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rahma Fakhfakh | Software Engineer</title>
+    <meta name="description" content="Portfolio of Rahma Fakhfakh - Software Engineer specializing in Data, AI and Software Development" />
+    <meta name="author" content="Rahma Fakhfakh" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Immediately set theme class to avoid flash of incorrect theme -->
+    <script>
+      (function() {
+        try {
+          const saved = localStorage.getItem('theme');
+          if (saved === 'dark') {
+            document.documentElement.classList.add('dark');
+            return;
+          }
+          if (saved === 'light') {
+            document.documentElement.classList.remove('dark');
+            return;
+          }
+          // No saved preference - use system
+          const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (prefersDark) document.documentElement.classList.add('dark');
+          else document.documentElement.classList.remove('dark');
+        } catch (e) {
+          // ignore
+        }
+      })();
+    </script>
+
+    <meta property="og:title" content="Rahma Fakhfakh | Software Engineer" />
+    <meta property="og:description" content="Portfolio of Rahma Fakhfakh - Software Engineer specializing in Data, AI and Software Development" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Minimal Pro Color Palette - Light Mode */
+    --background: 214 32% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 214 32% 97%;
+
+    --secondary: 217 19% 35%;
+    --secondary-foreground: 214 32% 97%;
+
+    --muted: 214 32% 91%;
+    --muted-foreground: 217 19% 35%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 214 32% 97%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 214 32% 97%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+    
+    /* Custom colors - Minimal Pro Light */
+    --cool-gray: 217 19% 35%;
+    --azure-blue: 217 91% 60%;
+    --silver: 214 32% 91%;
+    --almost-black: 222 47% 11%;
+    --off-white: 214 32% 97%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(217 19% 35%) 100%);
+    --gradient-glow: linear-gradient(135deg, hsl(217 91% 60% / 0.1) 0%, hsl(217 19% 35% / 0.1) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(214 32% 97%) 0%, hsl(214 32% 91%) 100%);
+    
+    /* Shadows */
+    --shadow-teal: 0 0 30px hsl(217 91% 60% / 0.2);
+    --shadow-amber: 0 0 30px hsl(217 19% 35% / 0.15);
+    --shadow-card: 0 10px 40px hsl(0 0% 0% / 0.1);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-theme: all 0.5s ease-in-out;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Minimal Pro Color Palette - Dark Mode */
+    --background: 222 47% 11%;
+    --foreground: 214 32% 97%;
+
+    --card: 222 47% 15%;
+    --card-foreground: 214 32% 97%;
+
+    --popover: 222 47% 15%;
+    --popover-foreground: 214 32% 97%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 19% 35%;
+    --secondary-foreground: 214 32% 97%;
+
+    --muted: 217 19% 25%;
+    --muted-foreground: 214 32% 91%;
+
+    --accent: 214 32% 91%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 214 32% 97%;
+
+    --border: 217 19% 25%;
+    --input: 217 19% 25%;
+    --ring: 217 91% 60%;
+    
+    /* Custom colors - Minimal Pro Dark */
+    --cool-gray: 217 19% 35%;
+    --azure-blue: 217 91% 60%;
+    --silver: 214 32% 91%;
+    --almost-black: 222 47% 11%;
+    --off-white: 214 32% 97%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(214 32% 91%) 100%);
+    --gradient-glow: linear-gradient(135deg, hsl(217 91% 60% / 0.2) 0%, hsl(214 32% 91% / 0.2) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(222 47% 11%) 0%, hsl(222 47% 8%) 100%);
+    
+    /* Shadows */
+    --shadow-teal: 0 0 30px hsl(217 91% 60% / 0.4);
+    --shadow-amber: 0 0 30px hsl(214 32% 91% / 0.3);
+    --shadow-card: 0 10px 40px hsl(222 47% 5% / 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    transition: var(--transition-theme);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+  }
+}
+
+@layer utilities {
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--teal) / 0.6);
+  }
+  
+  .glow-border {
+    box-shadow: 0 0 20px hsl(var(--teal) / 0.4);
+  }
+
+  .glow-pulse {
+    animation: glow-pulse-teal 2s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse-teal {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--teal) / 0.4), 0 0 40px hsl(var(--teal) / 0.2);
+    }
+    50% {
+      box-shadow: 0 0 30px hsl(var(--teal) / 0.6), 0 0 60px hsl(var(--teal) / 0.3);
+    }
+  }
+  
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .rotateY-180 {
+    transform: rotateY(180deg);
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  .scroll-smooth {
+    scroll-behavior: smooth;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
